@@ -1,0 +1,1075 @@
+
+<!-- saved from url=(0050)https://osu.ppy.sh/p/beatmaplist?m=-1&r=4&g=0&la=0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="./css">
+<link rel="stylesheet" href="./font-awesome.min.css">
+<style>
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+
+/**
+ * 1. Set default font family to sans-serif.
+ * 2. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+
+html {
+  font-family: sans-serif; /* 1 */
+  -ms-text-size-adjust: 100%; /* 2 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+
+/**
+ * Remove default margin.
+ */
+
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+
+/**
+ * Correct `block` display not defined for any HTML5 element in IE 8/9.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
+ * Correct `block` display not defined for `main` in IE 11.
+ */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+/**
+ * 1. Correct `inline-block` display not defined in IE 8/9.
+ * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+ */
+
+audio,
+canvas,
+progress,
+video {
+  display: inline-block; /* 1 */
+  vertical-align: baseline; /* 2 */
+}
+
+/**
+ * Prevent modern browsers from displaying `audio` without controls.
+ * Remove excess height in iOS 5 devices.
+ */
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Address `[hidden]` styling not present in IE 8/9/10.
+ * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+ */
+
+[hidden],
+template {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+
+/**
+ * Remove the gray background color from active links in IE 10.
+ */
+
+a {
+  background-color: transparent;
+}
+
+/**
+ * Improve readability when focused and also mouse hovered in all browsers.
+ */
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+
+/**
+ * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+ */
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+/**
+ * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+ */
+
+b,
+strong {
+  font-weight: bold;
+}
+
+/**
+ * Address styling not present in Safari and Chrome.
+ */
+
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Address variable `h1` font-size and margin within `section` and `article`
+ * contexts in Firefox 4+, Safari, and Chrome.
+ */
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Address styling not present in IE 8/9.
+ */
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+/**
+ * Address inconsistent and variable font size in all browsers.
+ */
+
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+ */
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+/* Embedded content
+   ========================================================================== */
+
+/**
+ * Remove border when inside `a` element in IE 8/9/10.
+ */
+
+img {
+  border: 0;
+}
+
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+
+/**
+ * Address margin not present in IE 8/9 and Safari.
+ */
+
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * Address differences between Firefox and other browsers.
+ */
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+/**
+ * Contain overflow in all browsers.
+ */
+
+pre {
+  overflow: auto;
+}
+
+/**
+ * Address odd `em`-unit font size rendering in all browsers.
+ */
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* Forms
+   ========================================================================== */
+
+/**
+ * Known limitation: by default, Chrome and Safari on OS X allow very limited
+ * styling of `select`, unless a `border` property is set.
+ */
+
+/**
+ * 1. Correct color not being inherited.
+ *    Known issue: affects color of disabled elements.
+ * 2. Correct font properties not being inherited.
+ * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+ */
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  color: inherit; /* 1 */
+  font: inherit; /* 2 */
+  margin: 0; /* 3 */
+}
+
+/**
+ * Address `overflow` set to `hidden` in IE 8/9/10/11.
+ */
+
+button {
+  overflow: visible;
+}
+
+/**
+ * Address inconsistent `text-transform` inheritance for `button` and `select`.
+ * All other form control elements do not inherit `text-transform` values.
+ * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+ * Correct `select` style inheritance in Firefox.
+ */
+
+button,
+select {
+  text-transform: none;
+}
+
+/**
+ * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+ *    and `video` controls.
+ * 2. Correct inability to style clickable `input` types in iOS.
+ * 3. Improve usability and consistency of cursor style between image-type
+ *    `input` and others.
+ */
+
+button,
+html input[type="button"], /* 1 */
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; /* 2 */
+  cursor: pointer; /* 3 */
+}
+
+/**
+ * Re-set default cursor for disabled elements.
+ */
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+/**
+ * Remove inner padding and border in Firefox 4+.
+ */
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+/**
+ * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+ * the UA stylesheet.
+ */
+
+input {
+  line-height: normal;
+}
+
+/**
+ * It's recommended that you don't attempt to style these elements.
+ * Firefox's implementation doesn't respect box-sizing, padding, or width.
+ *
+ * 1. Address box sizing set to `content-box` in IE 8/9/10.
+ * 2. Remove excess padding in IE 8/9/10.
+ */
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * `font-size` values of the `input`, it causes the cursor style of the
+ * decrement button to change from `default` to `text`.
+ */
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+ * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+ *    (include `-moz` to future-proof).
+ */
+
+input[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box; /* 2 */
+  box-sizing: content-box;
+}
+
+/**
+ * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+ * Safari (but not Chrome) clips the cancel button when the search input has
+ * padding (and `textfield` appearance).
+ */
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Define consistent border, margin, and padding.
+ */
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct `color` not being inherited in IE 8/9/10/11.
+ * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+ */
+
+legend {
+  border: 0; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Remove default vertical scrollbar in IE 8/9/10/11.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * Don't inherit the `font-weight` (applied by a rule above).
+ * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+ */
+
+optgroup {
+  font-weight: bold;
+}
+
+/* Tables
+   ========================================================================== */
+
+/**
+ * Remove most spacing between table cells.
+ */
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td,
+th {
+  padding: 0;
+}
+</style>
+
+<style>
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+::-webkit-scrollbar-track {
+    background: #FFF;
+}
+::-webkit-scrollbar-thumb {
+    background: #CCC  ;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #AAA  ;
+}
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  background: white;
+}
+html,body,input,h1 {
+  color: #444;
+}
+
+h1 {
+  font-size: 1.2em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  color: #666;
+}
+
+form {
+  margin-bottom: 0;
+}
+
+input[type="submit"], button {
+  border: none;
+}
+
+input, textarea, button {
+  border: 1px solid #BBB;
+  padding: 7px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+input, textarea {
+  margin-bottom: 10px;
+}
+
+input.error, textarea.error {
+  border-color: #c7254e;
+  background-color: #f9f2f4;
+}
+
+.header {
+  height: 25px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 3px;
+  color: white;
+}
+
+.header .title {
+  text-align: center;
+  font-size: 0.9em;
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+.header .left {
+  position: absolute;
+  left: 0;
+}
+.header .right {
+  position: absolute;
+  right: 0;
+}
+.header a {
+  color: white;
+}
+.header .minimize {
+  display: block;
+  padding: 2px 8px;
+  margin-right: 4px;
+}
+.header .back {
+  display: block;
+  padding: 3px 8px;
+  margin-left: 4px;
+}
+
+.content {
+  position: fixed;
+  top: 25px;
+  bottom: 25px;
+  overflow-y: auto;
+  padding: 12px 12px 0 12px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+}
+
+.footer {
+  background: white;
+  padding: 4px 12px;
+  font-size: 0.7em;
+  text-align: right;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.footer a {
+  color: #AAA;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+  color: #888;
+}
+
+.contact-form .summary {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.contact-form textarea {
+  resize: none;
+  height: 100px;
+}
+.contact-form .success {
+  display: none;
+}
+
+.contact-form .email-message {
+  margin: 20px;
+  padding: 10px;
+  color: #888;
+  border-radius: 5px;
+  box-shadow: 2px 2px 6px #CCC;
+  word-wrap: break-word;
+}
+
+.contact-form .email-message .message {
+  margin-top: 10px;
+}
+
+.chat-form .summary {
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.chat-form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.chat .content-pane {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 70px;
+  padding: 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chat .content-pane .status {
+  clear: both;
+  text-align: center;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.chat .input-pane {
+  border-top: 1px solid #DDD;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  padding: 10px 10px 0 10px;
+}
+
+.chat .input-pane .end-chat {
+  display: none;
+}
+
+.chat .input-pane textarea {
+  width: 100%;
+  height: 100%;
+  padding: 7px;
+  border: 1px solid #CCC;
+  border-radius: 4px;
+  outline: none;
+  resize: none;
+  margin: 0;
+}
+
+.chat.disposed .input-pane form {
+  display: none;
+}
+
+.chat.disposed .input-pane .end-chat {
+  display: block;
+  color: white;
+  border: none;
+}
+
+.chat .bubble {
+  clear: both;
+  margin-bottom: 15px;
+  color: #666;
+  position: relative;
+  word-wrap: break-word;
+}
+
+.chat .bubble a {
+  color: #666;
+}
+
+.chat .bubble .name {
+  font-weight: bold;
+}
+
+.chat .bubble.user, .chat .bubble.customer {
+  border-radius: 4px;
+  padding: 5px 8px;
+  max-width: 80%;
+}
+
+.chat .bubble.system {
+  text-align: center;
+  color: #999;
+  font-size: 0.9em;
+}
+
+.chat .bubble.customer {
+  float: right;
+  margin-right: 10px;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.chat .bubble.customer .temporary {
+  color: #AAA;
+}
+
+.chat .bubble.customer .error {
+  color: red;
+  font-weight: bold;
+}
+
+.chat .bubble.customer .error:before {
+  content: "!";
+  font-weight: bold;
+  margin-right: 5px;
+  color: red;
+}
+
+.chat .bubble.customer:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  right: -10px;
+  border-left: 17px solid black;
+  border-left-color: inherit;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  z-index: -5;
+}
+
+.chat .bubble.user {
+  margin-left: 10px;
+  float: left;
+  border-width: 2px;
+  border-style: solid;
+}
+
+.chat .bubble.user:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: -10px;
+  border-right: 17px solid black;
+  border-right-color: inherit;
+  border-top: 20px solid transparent;
+  border-bottom: 0px solid transparent;
+  z-index: -5;
+}
+
+.knowledge-base .content-pane {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  padding: 10px;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.knowledge-base .button-pane {
+  border-top: 1px solid #DDD;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  padding: 10px 10px 0 10px;
+}
+
+.knowledge-base .search {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.knowledge-base.main .category .name {
+  font-size: 1.2em;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #666;
+}
+.knowledge-base.main .category + .category {
+  margin-top: 15px;
+}
+
+.knowledge-base.main .open-section {
+  padding: 3px 7px;
+  text-decoration: none;
+  display: block;
+  color: #666;
+  /*background: #F6F6F6;*/
+  margin-bottom: 3px;
+  border-left: 3px solid #eee;
+}
+
+.knowledge-base.main .section + .section {
+  margin-top: 15px;
+}
+
+.knowledge-base.section .open-article,
+.knowledge-base.main .open-article {
+  padding: 3px 7px;
+  text-decoration: none;
+  display: block;
+  color: #666;
+  /*background: #F6F6F6;*/
+  margin-bottom: 3px;
+  border-left: 3px solid #eee;
+}
+
+.knowledge-base.main .open-section.more {
+  font-weight: bold;
+}
+
+.knowledge-base.search .results .open-article {
+  padding: 3px 7px;
+  text-decoration: none;
+  display: block;
+  color: #666;
+  /*background: #F6F6F6;*/
+  margin-bottom: 3px;
+  border-left: 3px solid #eee;
+}
+
+.knowledge-base.search .results .open-article .name {
+  display: block;
+  font-weight: bold;
+}
+
+.knowledge-base.search .no-results {
+  margin-top: 50px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.knowledge-base.article h1 {
+  font-size: 1.4em;
+  font-weight: normal;
+  color: #333;
+  padding-bottom: 2px;
+  border-bottom: 3px solid #EEE;
+}
+
+.knowledge-base.article h2 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #666;
+}
+
+.knowledge-base.article h3 {
+  font-size: 1.2em;
+  color: #666;
+}
+
+.knowledge-base.article dl {
+  margin: 18px 0 25px 0;
+}
+.knowledge-base.article dt {
+  float: left;
+  padding-top: 4px;
+}
+.knowledge-base.article dd {
+  margin-left: 30px;
+  margin-bottom: 1em;
+}
+.knowledge-base.article dt span {
+  display: inline-block;
+  margin-left: -3px;
+  font-weight: bold;
+  border-radius: 100%;
+  width: 23px;
+  height: 23px;
+  background-color: #AFB2B3;
+  color: white;
+  padding-top: 3px;
+  text-align: center;
+  font-size: 12px;
+}
+.knowledge-base.article dt .fa {
+  margin-left: 6px;
+  font-size: 0.6em;
+  margin-top: 7px;
+}
+.knowledge-base.article dd > h2,
+.knowledge-base.article dd > h3 {
+  margin: 10px 0;
+}
+.knowledge-base.article dd > h2:first-child {
+  padding-top: 2px;
+  margin-top: 0;
+}
+.knowledge-base.article dd > h3:first-child {
+  padding-top: 3px;
+  margin-top: 0;
+}
+.knowledge-base.article dd > p:first-child {
+  margin-top: 0;
+  padding-top: 4px;
+}
+
+.knowledge-base.article dd > .img-container:first-child {
+  margin-top: 0;
+}
+
+.knowledge-base.article .img-container {
+  text-align: center;
+  margin: 20px 0;
+}
+.knowledge-base.article .img-container img {
+  max-width: 100%;
+}
+.knowledge-base.article dd .img-container {
+  text-align: center;
+  margin: 10px 0;
+}
+.knowledge-base.article dd > .img-container:first-child {
+  margin-top: 15px;
+}
+
+.knowledge-base.article blockquote {
+  padding: 0 0 0 15px;
+  margin: 0 0 20px 0;
+  border-left: 5px solid #eeeeee;
+}
+
+.knowledge-base.article code {
+  padding: 0px 4px 1px 4px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  white-space: nowrap;
+  font-size: 0.9em;
+  border-radius: 4px;
+}
+
+.knowledge-base.article pre code {
+  display: block;
+  padding: 10px;
+  margin: 0 0 20px 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre;
+  white-space: pre-wrap;
+}
+
+</style>
+
+<style>
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #f462a3;
+}
+.theme-text-block a {
+  color: #f462a3;
+}
+.theme-primary-button {
+  background-color: #f462a3;
+  color: white;
+}
+.theme-header {
+  background-color: #f462a3;
+}
+.theme-user-bubble-color {
+  background-color: #fde0ed;
+  border-color: #fbc0da;
+}
+.theme-menu-item-on-hover:hover {
+  /*background-color: #fde0ed !important;
+  border-color: #fbc0da !important;  */
+  color: #f462a3 !important;
+  border-color: #f462a3 !important;  
+}
+.theme-customer-bubble-color {
+  background-color: #f6f6f6;
+  border-color: #EEE;
+}
+
+.theme-contact-form-email-message {
+  border: 1px solid #fbc0da;
+  box-shadow: 0 0 5px #fbc0da;
+}
+</style>
+</head><body><div><div class="knowledge-base main"><div class="header theme-header">
+  <div class="title">Knowledge Base</div>
+
+  <div class="right">
+    <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="minimize"><i class="fa fa-chevron-down"></i></a>
+  </div>
+  <div class="left">
+    <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="back" style="display: none"><i class="fa fa-chevron-left"></i></a>
+  </div>
+</div>
+<div class="content"><div class="content-pane">
+  <form>
+    <input class="search" type="text" placeholder="Search">
+  </form>
+
+  <div class="links"><div class="sections">
+    <div class="section">
+      <h1>Account</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557054c669702d58b01d0000">I've paid for a supporter tag, but still haven't got it!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="556feadb69702d6962470000">What is "restricted" mode, exactly?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557050b669702d4d82100000">The flag on my account profile is wrong!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570520969702d53070d0000">I've forgotten my username and password!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-section more theme-menu-item-on-hover" data-id="557050ec69702d11ae3f0100">... see all</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Client</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5621653d69702d0547000065">osu! freezes when I click a link or multiplayer map!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570572469702d5864370000">I can't login or connect to the game at all!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557058e269702d5a4ecd0000">My PC reboots while playing osu!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557059fd69702d2d27110000">I have changed my settings, and now I can't start osu! or it freezes.</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-section more theme-menu-item-on-hover" data-id="5570513869702d1f70000000">... see all</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Website</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557054f969702d24371c0000">My support ticket was closed with no response!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570550869702d551c290000">My user page has been locked and I can't edit it! Why?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570551969702d551c2d0000">What are these "user pages" that I see on other players profiles?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570553869702d55dd160000">When I try to register, all the fields say "invalid request"!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-section more theme-menu-item-on-hover" data-id="5570547a69702d1a361d0100">... see all</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Gameplay</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570571269702d59758b0000">My combo/scores/accuracy display are missing!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570574869702d551ca60000">I receive some sort of server-side error when trying to play online!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557057bc69702d5bd05c0000">My scores are missing!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="557057e869702d27a3510000">My scores earned offline aren't showing up on the online rankings!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-section more theme-menu-item-on-hover" data-id="557056ec69702d551c7b0000">... see all</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Installation and Registration</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="55705d7069702d55dda00100">How do I download osu!?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="55705da669702d31b5060100">Where do I register for osu!?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="55705dfa69702d6bfcdd0000">The game installer throws an error or does not work when I use it!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="55705f8769702d63f7370300">I have 64-bit Windows and cannot install osu! correctly!</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Tournaments</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570602d69702d6478800100">I applied to play in an official tournament, but was denied!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5570606169702d73cd220000">I would like official support for a tournament/event that I am hosting.</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570d2d6b69702d07880000b1">What does the official support for tournaments include?</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Peripherals (osu!store merchandise)</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="5571348669702d5c9e0000e1">Where can I get the configuration utility for the osu!keyboard?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570d2fd769702d1292000062">The LEDs on my osu! nono keyboard aren't working!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570d31c469702d37f5000155">How do I know if my osu!tablet is working or not?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570d335969702d1abb0000ae">My computer doesn't recognize the osu!go when I plug it in!</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Troubleshooting</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="563c71d669702d268b00004f">How do I provide log files when asked?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="574d7e35d559306773b9c625">Bancho Authentification Error</a>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Beatmapping and Editor</h1>
+      <div class="articles">
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570c91e769702d08ac000071">How do I upload/update my map?</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570c92d169702d0ca800009c">I am supporter but I don't have 10 pending slots!</a>
+          <a href="https://osu.ppy.sh/p/beatmaplist?m=-1&amp;r=4&amp;g=0&amp;la=0#" class="open-article theme-menu-item-on-hover" data-id="570c949569702d0aa1000116">How can I delete my map?</a>
+      </div>
+    </div>
+</div></div>
+</div>
+<div class="button-pane">
+  <button class="contact-us theme-primary-button">Contact Us</button>
+</div></div>
+<div class="footer">
+  <a target="_blank" href="http://www.enchant.com/">ENCHANT</a>
+</div></div></div></body></html>

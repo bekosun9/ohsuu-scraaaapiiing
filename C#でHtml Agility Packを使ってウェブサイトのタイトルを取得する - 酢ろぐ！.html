@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<!-- saved from url=(0048)http://blog.ch3cooh.jp/entry/20141201/1417397400 -->
+<html lang="ja" data-avail-langs="ja en" data-page="entry" data-static-domain="//cdn.blog.st-hatena.com" data-blog="ch3cooh.hatenablog.jp" data-blog-name="酢ろぐ！" data-blogs-uri-base="http://blog.ch3cooh.jp" data-globalheader-color="b" data-author="ch3cooh393" data-version="8d84b0b7cd862c681ed2ea1a958db9ff" data-blog-comments-top-is-new="" data-plus-available="1" data-admin-domain="http://blog.hatena.ne.jp" data-brand="hatenablog" data-has-touch-view="1" itemscope="" itemtype="http://schema.org/Article" data-device="pc" data-globalheader-type="pc" data-initial-state="{}"><head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# article: http://ogp.me/ns/article#"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/cb=gapi.loaded_1" async=""></script><script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/cb=gapi.loaded_0" async=""></script><script async="" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/notices.count.json"></script>
+    
+    
+    
+
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=7; IE=9; IE=10; IE=11">
+    <title>C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！</title>
+
+    
+
+    
+      <link rel="canonical" href="http://blog.ch3cooh.jp/entry/20141201/1417397400">
+    
+
+    
+    
+
+<meta itemprop="name" content="C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！">
+
+  <meta itemprop="image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/c/ch3cooh393/20141201/20141201110026.png">
+
+
+    <meta property="og:title" content="C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！">
+<meta property="og:type" content="article">
+  <meta property="og:url" content="http://blog.ch3cooh.jp/entry/20141201/1417397400">
+
+  <meta property="og:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/c/ch3cooh393/20141201/20141201110026.png">
+
+    <meta property="og:description" content="Html Agility Packという.NET Framework向けに書かれたHTMLパーサーライブラリがあります。このライブラリはC#から利用することができます。簡単にウェブスクレイピングすることができます。 まずは最初ということで、このブログ(blog.ch3cooh.jp)のタイトルを取得してみましょう。 以下のサンプルコードでやっていることは、とても簡単でHttpClientクラスを使って取得したHTML(のストリーム)をHtmlAgilityPack.HtmlDocumentオブジェクトにLoadメソッドで読み込みDOM解析します。 あとは必要なノード(タイトルが欲しいのであれば…">
+<meta property="og:site_name" content="酢ろぐ！">
+
+  <meta property="article:published_time" content="1417397400">
+    <meta property="article:author" content="100000018502972">
+    <meta property="article:tag" content="C#">
+    <meta property="article:tag" content="Web">
+        <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="http://cdn-ak.f.st-hatena.com/images/fotolife/c/ch3cooh393/20141201/20141201110026.png">
+  <meta name="twitter:title" content="C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！">    <meta name="twitter:description" content="Html Agility Packという.NET Framework向けに書かれたHTMLパーサーライブラリがあります。このライブラリはC#から利用することができます。簡単にウェブスクレイピングすることができます。 まずは最初ということで、このブログ(blog.ch3cooh.jp)のタイトルを取得してみましょう。 以…">  <meta name="twitter:app:name:iphone" content="はてなブログアプリ">
+  <meta name="twitter:app:id:iphone" content="583299321">
+  <meta name="twitter:app:url:iphone" content="hatenablog:///open?uri=http%3A%2F%2Fblog.ch3cooh.jp%2Fentry%2F20141201%2F1417397400">  <meta name="twitter:site" content="@ch3cooh">
+    
+    <meta name="google-site-verification" content="yqjMseBPEWlIq56hRxZYVAhEV1DMWoPDzV-tfStAPYY">    <meta name="keywords" content="C#;WinRT;Windowsストアアプリ;Windows Phone;Windows Mobile;Swift;">    <meta name="msvalidate.01" content="534E082C00DA3BC38CE7C988D9D801AD">    <meta name="msvalidate_01" content="534E082C00DA3BC38CE7C988D9D801AD">    <meta name="description" content="Html Agility Packという.NET Framework向けに書かれたHTMLパーサーライブラリがあります。このライブラリはC#から利用することができます。簡単にウェブスクレイピングすることができます。 まずは最初ということで、このブログ(blog.ch3cooh.jp)のタイトルを取得してみましょう。 以…">
+
+    
+<script type="text/javascript" async="" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/recaptcha__ja.js"></script><script id="facebook-jssdk" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/sdk.js"></script><script async="" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/analytics.js"></script><script type="text/javascript">
+// <!--
+
+if (~navigator.userAgent.indexOf('Mac OS X')) {
+  document.write('<style type="text/css">html, body { font-family: \x27Helvetica\x27, \x27Arial\x27, \x27ヒラギノ角ゴ Pro W3\x27, \x27Hiragino Kaku Gothic Pro\x27, sans-serif; } </style>');
+} else {
+  document.write('<style type="text/css">html, body { font-family: \x27Helvetica\x27, \x27Arial\x27, \x27メイリオ\x27, \x27Meiryo\x27, \x27MS PGothic\x27, sans-serif; } </style>');
+}
+
+// -->
+</script><style type="text/css">html, body { font-family: 'Helvetica', 'Arial', 'メイリオ', 'Meiryo', 'MS PGothic', sans-serif; } </style>
+
+
+
+
+    <link rel="shortcut icon" href="http://cdn.image.st-hatena.com/image/favicon/e65940a49a87d7131c5c65e6fe3f5a5f7951355e/version=1/http%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fch3cooh393%2F297786671183086532.png">
+<link rel="icon" sizes="192x192" href="http://cdn.image.st-hatena.com/image/square/6f2a495a06a92cdf11606581ff8c64d8a0079108/backend=imagemagick;height=192;version=1;width=192/http%3A%2F%2Fcdn.mogile.archive.st-hatena.com%2Fv1%2Fimage%2Fch3cooh393%2F297786671183086532.png">
+
+    
+<link rel="alternate" type="application/atom+xml" title="Atom" href="http://blog.ch3cooh.jp/feed">
+<link rel="alternate" type="application/rss+xml" title="RSS2.0" href="http://blog.ch3cooh.jp/rss">
+<link rel="alternate" type="application/json+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Fblog.ch3cooh.jp%2Fentry%2F20141201%2F1417397400&amp;format=json" title="oEmbed Profile of C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する">
+<link rel="alternate" type="text/xml+oembed" href="http://hatenablog.com/oembed?url=http%3A%2F%2Fblog.ch3cooh.jp%2Fentry%2F20141201%2F1417397400&amp;format=xml" title="oEmbed Profile of C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する">
+
+      <link rel="author" href="http://www.hatena.ne.jp/ch3cooh393/">
+
+    <link rel="stylesheet" type="text/css" href="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/blog.css">
+
+    
+  <link rel="stylesheet" type="text/css" href="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/67efce079b3a9b1db92261df9225d3da5fc51515">
+
+    <script></script>
+
+    
+<style>
+  div#google_afc_user,
+  div#google_afc_user_container_0,
+  div#google_afc_user_container_1,
+  div#google_afc_user_container_2,
+  div#google_afc_user_container_3,
+  div#google_afc_user_container_4,
+  div#google_afc_user_container_5,
+  div.google_afc_image,
+  div.google_afc_blocklink {
+      display: block !important;
+  }
+</style>
+
+
+    
+  <script type="text/javascript" charset="utf-8" async="" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/button.a1287ca71ce6e06bb8d64fd87cd04244.js"></script><style id="AutoPatchWork-style">#AutoPatchWork-Bar{
+	position:fixed !important;
+	bottom:0px !important;
+	left:0px !important;
+	right:0px !important;
+	height:0px !important;
+	background:rgba(0,255,0,0) !important;
+	border-top   :12px solid rgba(0, 255, 0, 0.01) !important;
+	border-bottom: 1px solid rgba(0, 255, 0,    1) !important;
+	color:rgba(0,0,0,0) !important;
+	z-index:10000 !important;
+	text-align:right;
+}
+#AutoPatchWork-Bar.off{
+	border-top   : 2px solid rgba(128, 128, 128, 0.1) !important;
+	border-bottom: 2px solid rgba(128, 128, 128, 0.1) !important;
+	margin-top:9px;
+}
+#AutoPatchWork-Bar:hover{
+	border-top-width:0px !important;
+	height:24px !important;
+	/*margin-top:-12px;*/
+	color:rgba(0,0,0,1) !important;
+	background-color:rgba(222,222,222,.75) !important;
+}
+#AutoPatchWork-Bar:hover:after{
+	position:absolute;
+	display:block;
+	top:0px !important;
+	left:10px !important;
+	content:"AutoPatchWork / ON" !important;
+	font-size:15px !important;
+}
+#AutoPatchWork-Bar.loading{
+	-webkit-animation-name: loading;
+	-webkit-animation-duration: 1s;
+	-webkit-animation-iteration-count:infinite;
+	animation-name: loading;
+	animation-duration: 1s;
+	animation-iteration-count:infinite;
+}
+@-webkit-keyframes loading {
+	from {
+		border-top-color   :rgba(0, 255, 255, 0.75);
+		border-bottom-color:rgba(0, 128, 255, 0.75);
+		border-top-width:1px;
+		border-bottom-width:12px;
+	}
+	to {
+		border-top-color   :rgba(0, 128, 255, 0.75);
+		border-bottom-color:rgba(0, 128, 255, 0.75);
+		border-top-width:12px;
+		border-bottom-width:1px;
+	}
+}
+@keyframes loading {
+	from {
+		border-top-color   :rgba(0, 255, 255, 0.75);
+		border-bottom-color:rgba(0, 128, 255, 0.75);
+		border-top-width:1px;
+		border-bottom-width:12px;
+	}
+	to {
+		border-top-color   :rgba(0, 128, 255, 0.75);
+		border-bottom-color:rgba(0, 128, 255, 0.75);
+		border-top-width:12px;
+		border-bottom-width:1px;
+	}
+}
+#AutoPatchWork-Bar.terminated{
+	border-top   :12px solid rgba(255, 128, 64, .5) !important;
+	border-bottom: 1px solid rgba(255, 128, 64, .5) !important;
+}
+#AutoPatchWork-Bar.error{
+	border-top   :12px solid rgba(255, 0, 0, .5) !important;
+	border-bottom: 1px solid rgba(255, 0, 0, .5) !important;
+}
+#AutoPatchWork-Bar.loading:hover:after{
+	content:"loading..." !important;
+}
+#AutoPatchWork-Bar.terminated:hover:after{
+	content:"terminated." !important;
+}
+#AutoPatchWork-Bar.error:hover:after{
+	content:"error" !important;
+}
+#AutoPatchWork-Bar.remove{
+	display:none !important;
+}
+#AutoPatchWork-Bar.off:hover:after{
+	content:"AutoPatchWork / OFF" !important;
+	color:#444 !important;
+}
+#AutoPatchWork-Bar button{
+	display:none;
+}
+#AutoPatchWork-Bar:hover button{
+	display:inline-block;
+	background: #222;
+	background: -webkit-gradient(linear, left top, left bottom,from(#222),to(#666));
+	color:#fff;
+	height:22px;
+	border:1px solid #aaa;
+	cursor:pointer;
+	margin:0px 0px 0px 10px;
+	width:160px;
+}
+.autopagerize_page_separator_blocks .autopagerize_link{
+  display:inline-block;
+}
+.autopagerize_page_separator_blocks .autopagerize_link:before{
+  content:"page: " attr(number);
+}
+</style><script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/entries.json" type="text/javascript"></script><style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_reposition{overflow:hidden;position:relative}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, "hiragino kaku gothic pro",meiryo,"ms pgothic",sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}@keyframes fb_transform{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}.fb_animate{animation:fb_transform .3s forwards}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f6f7f9;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #365899;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{width:auto;height:auto;min-height:initial;min-width:initial;background:none}.fb_dialog.fb_dialog_mobile.loading.centered #fb_dialog_loader_spinner{width:100%}.fb_dialog.fb_dialog_mobile.loading.centered .fb_dialog_content{background:none}.loading.centered #fb_dialog_loader_close{color:#fff;display:block;padding-top:20px;clear:both;font-size:18px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;bottom:0;left:0;right:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29487d;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f6f7f9;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}#fb_dialog_loader_spinner{animation:rotateSpinner 1.2s linear infinite;background-color:transparent;background-image:url(https://static.xx.fbcdn.net/rsrc.php/v2/yD/r/t-wz8gw1xG1.png);background-repeat:no-repeat;background-position:50% 50%;height:24px;width:24px}@keyframes rotateSpinner{0%{transform:rotate(0deg)}100%{transform:rotate(360deg)}}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_fluid_desktop,.fb_iframe_widget_fluid_desktop span,.fb_iframe_widget_fluid_desktop iframe{max-width:100%}.fb_iframe_widget_fluid_desktop iframe{min-width:220px;position:relative}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(https://static.xx.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+
+  <body class="page-entry category-C# category-Web">
+    <!-- Google Universal Analytics -->
+<script id="google-analytics-script">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29716941-6', 'auto', {'name': 'HatenaBlogTracker', 'sampleRate': 1});
+  ga('HatenaBlogTracker.require', 'displayfeatures');
+  ga('HatenaBlogTracker.send', 'pageview');
+  ga('create', 'UA-29716941-18', 'auto', {'name': 'HatenaBlogSeparatedTracker', 'sampleRate': 10});
+  ga('HatenaBlogSeparatedTracker.require', 'displayfeatures');
+  ga('HatenaBlogSeparatedTracker.send', 'pageview');
+
+    
+      ga('create', 'UA-6299485-12', 'auto', {'name': 'HatenaBlogUserTracker'});
+      ga('HatenaBlogUserTracker.require', 'displayfeatures');
+      ga('HatenaBlogUserTracker.send', 'pageview');
+    
+  
+  ga('create', 'UA-7855606-1', 'auto', {'name': 'HatenaGlobalTracker', 'sampleRate': 1});
+  ga('HatenaGlobalTracker.require', 'displayfeatures');
+  ga('HatenaGlobalTracker.send', 'pageview');
+
+  
+  document.addEventListener('DOMContentLoaded', function() {
+    Array.map(document.querySelectorAll('article[data-keyword-campaign]'), function(article){
+      
+      return article.getAttribute('data-keyword-campaign');
+    }).filter(function(attr){
+      
+      return attr.length;
+    }).forEach(function(attr, index){
+      
+      if (index === 0) {
+        ga('create', 'UA-29716941-28', 'auto', {'name': 'HatenaBlogCampaignTracker'});
+      }
+
+      
+      ga('HatenaBlogCampaignTracker.send', {
+          'hitType':       'event',
+          'eventCategory': 'PageView',
+          'eventAction':   'VisitEntry',
+          'eventLabel':    attr,
+      });
+    });
+  });
+</script>
+<!-- End Google Universal Analytics -->
+
+    
+    <div id="header-container">
+     <div id="sp-suggest" style="display: none;"><a id="sp-suggest-link" href="http://blog.ch3cooh.jp/entry/20141201/1417397400#">スマートフォン用の表示で見る</a></div>
+    </div>
+
+    
+
+<div class="quote-box" style="display: none;">
+  <div class="tooltip-quote tooltip-quote-star" style="display: block;">
+    <i class="blogicon-star" title="引用スターをつける"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-stock" style="display: block;">
+    <i class="blogicon-quote" title="引用をストック"></i>
+  </div>
+  <div class="tooltip-quote tooltip-quote-tweet js-tooltip-quote-tweet">
+    <a class="js-tweet-quote" target="_blank" data-track-name="quote-tweet" data-track-once=""><i class="blogicon-twitter" title="引用してツイートする"></i></a>
+  </div>
+</div>
+
+<div class="message-box" id="quote-star-message-box" style="display: none; position: absolute;">
+  スターをつけました
+</div>
+
+<div class="quote-stock-panel" id="quote-stock-message-box" style="position: absolute; z-index: 3000">
+  <div class="message-box" id="quote-stock-succeeded-message" style="display: none">
+    <p>引用をストックしました</p>
+    <button class="btn btn-primary" id="quote-stock-show-editor-button" data-track-name="curation-quote-edit-button">ストック一覧を見る</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="message-box" id="quote-login-required-message" style="display: none">
+    <p>引用するにはまずログインしてください</p>
+    <button class="btn btn-primary" id="quote-login-button">ログイン</button>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="quote-stock-failed-message" style="display: none">
+    <p>引用をストックできませんでした。再度お試しください</p>
+    <button class="btn quote-stock-close-message-button">閉じる</button>
+  </div>
+
+  <div class="error-box" id="unstockable-quote-message-box" style="display: none; position: absolute; z-index: 3000;">
+    <p>限定公開記事のため引用できません。</p>
+  </div>
+</div>
+
+<script type="x-underscore-template" id="js-requote-button-template">
+  <div class="requote-button js-requote-button">
+    <button class="requote-button-btn tipsy-top" title="引用する"><i class="blogicon-quote"></i></button>
+  </div>
+</script>
+
+
+
+    <div id="globalheader-container">
+  <iframe id="globalheader" height="37" frameborder="0" allowtransparency="true" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/saved_resource.html"></iframe>
+</div>
+
+
+    
+    <div id="hidden-subscribe-button">
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box">
+
+  <a href="http://blog.ch3cooh.jp/entry/20141201/1417397400#" class="hatena-follow-button js-hatena-follow-button unsubscribing">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once="">
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box" style="display: block;">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">162</span>
+  </div>
+</div>
+
+    </div>
+
+    <div id="container">
+      <div id="container-inner">
+        <header id="blog-title" data-brand="hatenablog">
+  <div id="blog-title-inner">
+    <div id="blog-title-content">
+      <h1 id="title"><a href="http://blog.ch3cooh.jp/">酢ろぐ！</a></h1>
+      
+        <h2 id="blog-description">カレーが嫌いなスマートフォンアプリプログラマのブログ。</h2>
+      
+    </div>
+  </div>
+</header>
+
+        
+        
+        
+
+
+
+<div id="content" class="hfeed">
+  <div id="content-inner">
+    <div id="wrapper">
+      <div id="main">
+        <div id="main-inner">
+          
+            
+            <!-- google_ad_section_start -->
+            <!-- rakuten_ad_target_begin -->
+            
+              
+                <article class="entry hentry js-entry-article date-first autopagerize_page_element chars-1600 words-100 mode-markdown entry-odd" id="entry-8454420450075761576" data-keyword-campaign="" data-uuid="8454420450075761576">
+  <div class="entry-inner">
+    <header class="entry-header">
+      <div class="entry-date date first">
+        <a href="http://blog.ch3cooh.jp/entries/2014/12/01" rel="nofollow">
+          <time pubdate="" datetime="2014-12-01T01:30:00Z" title="2014-12-01T01:30:00Z">
+            <span class="date-year">2014</span><span class="hyphen">-</span><span class="date-month">12</span><span class="hyphen">-</span><span class="date-day">01</span>
+          </time>
+        </a>
+      </div>
+      <h1 class="entry-title">
+        <a href="http://blog.ch3cooh.jp/entry/20141201/1417397400" class="entry-title-link bookmark">C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する</a>
+      </h1>
+
+      
+      
+        <div class="entry-categories categories">
+          
+          <a href="http://blog.ch3cooh.jp/archive/category/C%23">C#</a>
+          
+          <a href="http://blog.ch3cooh.jp/archive/category/Web">Web</a>
+          
+        </div>
+      
+      
+
+      
+    </header>
+        
+    <div class="entry-content">
+
+      
+        <p><strong>Html Agility Pack</strong>という.NET Framework向けに書かれたHTMLパーサーライブラリがあります。このライブラリはC#から利用することができます。簡単にウェブスクレイピングすることができます。</p>
+
+<p><span class="textlinkplus">まずは最初ということで、このブログ(<a class="textlinkplus" href="http://blog.ch3cooh.jp/">blog.ch3cooh.jp</a>)のタイトルを取得してみましょう。</span></p>
+
+<p>以下のサンプルコードでやっていることは、とても簡単で<code>HttpClientクラス</code>を使って取得したHTML(のストリーム)をHtmlAgilityPack.HtmlDocumentオブジェクトに<code>Loadメソッド</code>で読み込みDOM解析します。</p>
+
+<p>あとは必要なノード(タイトルが欲しいのであればtitleタグ)を探して必要な値を取得します。</p>
+
+<pre class="code lang-cs" data-lang="cs" data-unlink=""><span class="synComment">// タイトルを取得したいサイトのURL</span>
+var urlstring = <span class="synConstant"><span class="textlinkplus">"<a class="textlinkplus" href="http://blog.ch3cooh.jp/">http://blog.ch3cooh.jp</a>/"</span></span>;
+
+var doc = <span class="synStatement">new</span> HtmlAgilityPack.HtmlDocument();
+
+<span class="synComment">// 指定したサイトのHTMLをストリームで取得する</span>
+<span class="synStatement">using</span> (var client = <span class="synStatement">new</span> HttpClient())
+<span class="synStatement">using</span> (var stream = await client.GetStreamAsync(<span class="synStatement">new</span> Uri(urlstring)))
+{
+    <span class="synComment">// HtmlAgilityPack.HtmlDocumentオブジェクトにHTMLを読み込ませる</span>
+    doc.Load(stream, Encoding.UTF8);
+}
+
+<span class="synComment">// HTMLから(複数の)titleタグを探す</span>
+var titles = doc.DocumentNode.Descendants(<span class="synConstant">"title"</span>);
+
+<span class="synComment">// 最初のtitleタグのノードを取り出す</span>
+var titleNode = titles.First();
+
+<span class="synComment">// titleタグの値(サイトのタイトルといて表示される部分)を取得する</span>
+var title = titleNode.InnerText;
+
+Debug.WriteLine(title);
+</pre>
+
+
+<p>上記のサンプルコードを実行すると、サイトのタイトルが取得できます。</p>
+
+<p><span itemscope="" itemtype="http://schema.org/Photograph"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/20141201110026.png" alt="f:id:ch3cooh393:20141201110026p:plain" title="f:id:ch3cooh393:20141201110026p:plain" class="hatena-fotolife" itemprop="image"></span></p>
+
+
+<p>これからも酢ろぐ！をよろしくお願いします。</p>
+
+<h2>関連記事</h2>
+
+<p>このブログでHtml Agility Packについて取り扱った記事をピックアップしました。</p>
+
+<ul>
+<li><a href="http://blog.ch3cooh.jp/entry/20141201/1417397400">C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する</a></li>
+<li><a href="http://blog.ch3cooh.jp/entry/20141204/1417656600">C#でHtml Agility Packを使って秀和システムの新刊情報を取得する</a></li>
+<li><a href="http://blog.ch3cooh.jp/entry/20141203/1417539847">C#でHtml Agility Packを使って豊橋技科大の休講情報を取得する</a></li>
+<li><a href="http://blog.ch3cooh.jp/entry/20141202/1417483800">C#でHtml Agility Packを使ってYahoo!ファイナンスの現在の株価を取得する</a></li>
+<li><a href="http://blog.ch3cooh.jp/entry/20141210/1418137500">Xamarin.iOSでHtml Agility Packを使ってHTMLをスクレイピングする</a></li>
+</ul>
+
+
+      
+    </div>
+    <footer class="entry-footer">
+      <p class="entry-footer-section">
+        <span class="author vcard"><span class="fn" data-load-nickname="1" data-user-name="ch3cooh393"><span class="user-name-nickname">CH3COOH(酢酸)</span> <span class="user-name-paren">(</span><span class="user-name-hatena-id">id:ch3cooh393</span><span class="user-name-paren">)</span></span></span>
+        <span class="entry-footer-time"><a href="http://blog.ch3cooh.jp/entry/20141201/1417397400"><time data-relative="" datetime="2014-12-01T01:30:00Z" title="2014-12-01T01:30:00Z" pubdate="" class="updated">1年前</time></a></span>
+      </p>
+
+      
+        <div class="hatena-star-container">
+        <span class="hatena-star-comment-container"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/comment.gif" tabindex="0" alt="Comments" title="Comments" class="hatena-star-comment-button" style="cursor: pointer; margin: 0px; padding: 0px; border: none; vertical-align: middle; display: none;"></span><span class="hatena-star-star-container"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/hatena-star-add-button.png" tabindex="0" alt="Add Star" title="Add Star" class="hatena-star-add-button" style="cursor: pointer; margin: 0px 3px; padding: 0px; border: none; vertical-align: middle;"><a href="http://blog.hatena.ne.jp/kukekko/"><span class="hatena-big-star-star-container"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/profile.gif" tabindex="0" class="hatena-star-user" style="padding: 0px; border: none;"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/star.gif" tabindex="0" class="hatena-star-star" style="padding: 0px; border: none;" alt="kukekko" title=""></span></a></span></div>
+        <div class="hatena-star-metadata" style="display: none">
+          <a class="hatena-star-permalink" href="http://blog.ch3cooh.jp/entry/20141201/1417397400">C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する</a>
+        </div>
+      
+
+      
+<div class="social-buttons">
+  
+  
+    <div class="social-button-item">
+      <iframe class="hatena-bookmark-button-frame" title="この記事をはてなブックマークに追加" frameborder="0" scrolling="no" width="80" height="60" src="javascript:false" style="width: 80px; height: 60px;" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/saved_resource(1).html"></iframe>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div class="fb-share-button fb_iframe_widget" data-layout="box_count" data-href="http://blog.ch3cooh.jp/entry/20141201/1417397400" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=719729204785177&amp;container_width=0&amp;href=http%3A%2F%2Fblog.ch3cooh.jp%2Fentry%2F20141201%2F1417397400&amp;layout=box_count&amp;locale=ja_JP&amp;sdk=joey"><span style="vertical-align: bottom; width: 61px; height: 40px;"><iframe name="f83f8017b0fe74" width="1000px" height="1000px" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" title="fb:share_button Facebook Social Plugin" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/share_button.html" style="border: none; visibility: visible; width: 61px; height: 40px;" class=""></iframe></span></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <a href="https://twitter.com/search?q=http%3A%2F%2Fblog.ch3cooh.jp%2Fentry%2F20141201%2F1417397400" class="social-button-twitter-balloon" target="_blank">
+        <span class="social-button-twitter-balloon-list">list</span>
+        <i class="social-button-twitter-balloon-arrow-border"></i>
+        <u class="social-button-twitter-balloon-arrow"></u>
+      </a>
+      <iframe id="twitter-widget-1" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" title="Twitter Tweet Button" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/tweet_button.d73d0c4cb6af3df0ea22b7c11dbc87d2.ja.html" style="position: static; visibility: visible; width: 67px; height: 20px;" data-url="http://blog.ch3cooh.jp/entry/20141201/1417397400"></iframe>
+    </div>
+  
+  
+    <div class="social-button-item">
+      <div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 50px; height: 60px; background: transparent;"><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" style="position: static; top: 0px; width: 50px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 60px;" tabindex="0" vspace="0" width="100%" id="I0_1471286253223" name="I0_1471286253223" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/fastbutton.html" data-gapiattached="true" title="+1"></iframe></div>
+    </div>
+  
+  
+    <div class="social-button-item">
+      
+      <a href="http://www.tumblr.com/share" data-hatenablog-tumblr-share-button="" data-share-url="http://blog.ch3cooh.jp/entry/20141201/1417397400" data-share-title="C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！" title="Share on Tumblr" style="display:inline-block; text-indent:-9999px; overflow:hidden; width:81px; height:20px; background:url(&#39;https://platform.tumblr.com/v1/share_1.png&#39;) top left no-repeat transparent; vertical-align: top;">Share on Tumblr</a>
+    </div>
+  
+  
+  
+    <div class="social-button-item">
+      <div class="pocket-btn"><iframe width="60" height="63" id="pocket-button-0" frameborder="0" allowtransparency="true" scrolling="NO" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/button.html"></iframe></div>
+    </div>
+  
+</div>
+
+
+      
+
+      <div class="customized-footer">
+
+        
+
+          
+
+          
+
+
+          
+            <div class="entry-footer-html"><div style="margin-top:16px">
+<script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- はてブロ 記事下(PC2) -->
+<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-6275292186973463" data-ad-slot="5549164039" data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+          
+        
+      </div>
+
+      <div class="comment-box">
+        
+        <ul class="comment">
+          
+        </ul>
+        
+          <a class="leave-comment-title">コメントを書く</a>
+        
+      </div>
+      <!-- enjapan ad -->
+      
+    </footer>
+  </div>
+</article>
+
+                
+
+                
+                  
+                  
+                  <div class="permalink pager">
+                    
+                      
+                      <span class="pager-prev">
+                        <a href="http://blog.ch3cooh.jp/entry/20141202/1417483800" rel="prev">
+                          <span class="pager-arrow">« </span>
+                          C#でHtml Agility Packを使ってYahoo!ファ…
+                        </a>
+                      </span>
+                    
+                    
+                      
+                      <span class="pager-next">
+                        <a href="http://blog.ch3cooh.jp/entry/20141130/1417318200" rel="next">
+                          千歳烏山食べ歩き(記) 豊前うどん 武膳
+                          <span class="pager-arrow"> »</span>
+                        </a>
+                      </span>
+                    
+                  </div>
+                
+
+              
+            
+            <!-- rakuten_ad_target_end -->
+            <!-- google_ad_section_end -->
+
+            
+          
+        </div>
+      </div>
+
+      
+      <aside id="box1">
+        <div id="box1-inner">
+        </div>
+      </aside>
+
+    </div><!-- #wrapper -->
+
+    <aside id="box2">
+  
+  <div id="box2-inner">
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-6275292186973463" data-ad-slot="7381753630"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+</div>
+
+      
+      
+    
+      
+
+<div class="hatena-module hatena-module-profile">
+  <div class="hatena-module-title">
+    プロフィール
+  </div>
+  <div class="hatena-module-body">
+    
+    <a href="http://blog.ch3cooh.jp/about" class="profile-icon-link">
+      <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/profile(1).gif" alt="id:ch3cooh393" class="profile-icon">
+    </a>
+    
+
+    
+    <span class="id">
+      <a href="http://blog.ch3cooh.jp/about" class="hatena-id-link"><span data-load-nickname="1" data-user-name="ch3cooh393"><span class="user-name-nickname">CH3COOH(酢酸)</span> <span class="user-name-paren">(</span><span class="user-name-hatena-id">id:ch3cooh393</span><span class="user-name-paren">)</span></span></a>
+      
+  
+    
+    
+      <a href="http://blog.hatena.ne.jp/guide/pro" title="はてなブログPro"><i class="blog-sprite-pro"></i></a>
+    
+  
+
+
+    </span>
+    
+
+    
+    <div class="profile-description">
+      <p>「掲載内容は私自身の見解であり、所属する組織を代表するものではありません 」。特に方向性を定めず、その時興味のあるネタを書いています。Tipsは<a href="http://ch3cooh.jp/">ch3cooh.jp</a> を。嫌いな食べ物はカレーです。</p><p><a href="http://mvp.microsoft.com/ja-jp/mvp/Kenji%20Wada-4029026"><img width="96" alt="Microsoft MVP for Deveice Application Development(Jul 2010 - Jun 2013)" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/MSMVP.png" height="151" border="0"></a></p>
+
+    </div>
+    
+
+    
+      <div class="hatena-follow-button-box btn-subscribe js-hatena-follow-button-box">
+
+  <a href="http://blog.ch3cooh.jp/entry/20141201/1417397400#" class="hatena-follow-button js-hatena-follow-button unsubscribing">
+    <span class="subscribing">
+      <span class="foreground">読者です</span>
+      <span class="background">読者をやめる</span>
+    </span>
+    <span class="unsubscribing" data-track-name="profile-widget-subscribe-button" data-track-once="">
+      <span class="foreground">読者になる</span>
+      <span class="background">読者になる</span>
+    </span>
+  </a>
+  <div class="subscription-count-box js-subscription-count-box" style="display: block;">
+    <i></i>
+    <u></u>
+    <span class="subscription-count js-subscription-count">162</span>
+  </div>
+</div>
+
+    
+
+    
+    <div class="hatena-follow-button-box btn-twitter">
+      <iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" class="twitter-follow-button twitter-follow-button-rendered" title="Twitter Follow Button" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/follow_button.d73d0c4cb6af3df0ea22b7c11dbc87d2.ja.html" style="position: static; visibility: visible; width: 150px; height: 20px;" data-screen-name="ch3cooh"></iframe>
+    </div>
+    
+
+    
+  </div>
+</div>
+
+      
+      
+    
+      <div class="hatena-module hatena-module-search-box">
+  <div class="hatena-module-title">
+    検索
+  </div>
+  <div class="hatena-module-body">
+    <form class="search-form" role="search" action="http://blog.ch3cooh.jp/search" method="get">
+      <input type="text" name="q" class="search-module-input" value="" placeholder="ブログ内検索" required="">
+      <input type="submit" value="検索" class="search-module-button">
+    </form>
+  </div>
+</div>
+
+      
+      
+    
+      
+<div class="hatena-module hatena-module-entries-access-ranking" data-count="10" data-display_entry_category="0" data-display_entry_image="1" data-display_entry_image_size_width="40" data-display_entry_image_size_height="40" data-display_entry_body_length="0" data-display_entry_date="0" data-display_bookmark_count="1" data-source="access">
+  <div class="hatena-module-title">
+    
+      注目記事
+    
+  </div>
+  <div class="hatena-module-body">
+    
+  <ul class="entries-access-ranking hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-1">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140528/1401288001">            <img alt="祖父(または3親等以内の親族)の軍歴証明書の取り寄せ方" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150118%2F20150118142834.png" class="urllist-image entries-access-ranking-image" title="祖父(または3親等以内の親族)の軍歴証明書の取り寄せ方" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140528/1401288001" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">祖父(または3親等以内の親族)の軍歴証明書の取り寄せ方        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140528/1401288001" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1401288001" alt="はてなブックマーク - 祖父(または3親等以内の親族)の軍歴証明書の取り寄せ方">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-2">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20151101/1446342069">            <img alt="サイバーガジェットのレトロフリークで遊んでみた話(そのあとレトロフリークが壊れて修理してもらった話)" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20151101%2F20151101101715.jpg" class="urllist-image entries-access-ranking-image" title="サイバーガジェットのレトロフリークで遊んでみた話(そのあとレトロフリークが壊れて修理してもらった話)" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20151101/1446342069" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">サイバーガジェットのレトロフリークで遊んでみた話(そのあとレトロフリークが壊れて修理してもらった話)        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20151101/1446342069" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1446342069" alt="はてなブックマーク - サイバーガジェットのレトロフリークで遊んでみた話(そのあとレトロフリークが壊れて修理してもらった話)">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-3">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140415/1397567904">            <img alt="iPhone用2ch専ブラ「BB2C」で2ch.scなどの外部板を追加する方法" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20140415%2F20140415214400.png" class="urllist-image entries-access-ranking-image" title="iPhone用2ch専ブラ「BB2C」で2ch.scなどの外部板を追加する方法" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140415/1397567904" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">iPhone用2ch専ブラ「BB2C」で2ch.scなどの外部板を追加する方法        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140415/1397567904" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1397567904" alt="はてなブックマーク - iPhone用2ch専ブラ「BB2C」で2ch.scなどの外部板を追加する方法">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-4">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20150210/1423573065">            <img alt="Xcodeでのビルドを自動化するxcodebuildコマンドとIPAファイルを作成してiTunes Connect(Testflight)に投げる方法" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Ff.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20151216%2F20151216123016.png" class="urllist-image entries-access-ranking-image" title="Xcodeでのビルドを自動化するxcodebuildコマンドとIPAファイルを作成してiTunes Connect(Testflight)に投げる方法" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150210/1423573065" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">Xcodeでのビルドを自動化するxcodebuildコマンドとIPAファイルを作成してiTunes Connect(Testflight)に投げる方法        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150210/1423573065" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1423573065" alt="はてなブックマーク - Xcodeでのビルドを自動化するxcodebuildコマンドとIPAファイルを作成してiTunes Connect(Testflight)に投げる方法">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-5">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140901/1409535000">            <img alt="お城の「天守閣」の復元天守、復興天守、模擬天守の違いとは" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20140518%2F20140518125348.jpg" class="urllist-image entries-access-ranking-image" title="お城の「天守閣」の復元天守、復興天守、模擬天守の違いとは" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140901/1409535000" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">お城の「天守閣」の復元天守、復興天守、模擬天守の違いとは        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140901/1409535000" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1409535000" alt="はてなブックマーク - お城の「天守閣」の復元天守、復興天守、模擬天守の違いとは">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-6">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140713/1405256400">            <img alt="もしかして、日本でパンダを見られる動物園は3つしかないのでは" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20140713%2F20140713201529.png" class="urllist-image entries-access-ranking-image" title="もしかして、日本でパンダを見られる動物園は3つしかないのでは" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140713/1405256400" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">もしかして、日本でパンダを見られる動物園は3つしかないのでは        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140713/1405256400" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1405256400" alt="はてなブックマーク - もしかして、日本でパンダを見られる動物園は3つしかないのでは">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-7">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20150629/1435541400">            <img alt="Swiftでシングルタップとダブルタップとロングプレス(ホールド)に同時に対応する" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Ff.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150504%2F20150504120714.png" class="urllist-image entries-access-ranking-image" title="Swiftでシングルタップとダブルタップとロングプレス(ホールド)に同時に対応する" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150629/1435541400" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">Swiftでシングルタップとダブルタップとロングプレス(ホールド)に同時に対応する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150629/1435541400" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1435541400" alt="はてなブックマーク - Swiftでシングルタップとダブルタップとロングプレス(ホールド)に同時に対応する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-8">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/coretweet">            <img alt=".NET向けのTwitterライブラリ「CoreTweet」の使い方まとめ" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150217%2F20150217232438.png" class="urllist-image entries-access-ranking-image" title=".NET向けのTwitterライブラリ「CoreTweet」の使い方まとめ" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/coretweet" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">.NET向けのTwitterライブラリ「CoreTweet」の使い方まとめ        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/coretweet" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/coretweet" alt="はてなブックマーク - .NET向けのTwitterライブラリ「CoreTweet」の使い方まとめ">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-9">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140707/1404731608">            <img alt="ASP.NET MVC 4でjQueryを使って動的に部分ビューを更新させる" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20140707%2F20140707192605.png" class="urllist-image entries-access-ranking-image" title="ASP.NET MVC 4でjQueryを使って動的に部分ビューを更新させる" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140707/1404731608" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">ASP.NET MVC 4でjQueryを使って動的に部分ビューを更新させる        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140707/1404731608" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1404731608" alt="はてなブックマーク - ASP.NET MVC 4でjQueryを使って動的に部分ビューを更新させる">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item entries-access-ranking-item rank-10">
+      <div class="urllist-item-inner entries-access-ranking-item-inner">
+                  <a class="urllist-image-link entries-access-ranking-image-link" href="http://blog.ch3cooh.jp/entry/20140214/1392348056">            <img alt="GengoとConyac、クラウド翻訳サービス各社の翻訳品質と価格を調べてみた" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20140214%2F20140214015230.png" class="urllist-image entries-access-ranking-image" title="GengoとConyac、クラウド翻訳サービス各社の翻訳品質と価格を調べてみた" width="40">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20140214/1392348056" class="urllist-title-link entries-access-ranking-title-link          urllist-title entries-access-ranking-title        ">GengoとConyac、クラウド翻訳サービス各社の翻訳品質と価格を調べてみた        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20140214/1392348056" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1392348056" alt="はてなブックマーク - GengoとConyac、クラウド翻訳サービス各社の翻訳品質と価格を調べてみた">
+          </a>
+        
+
+              </div>
+    </li>
+  
+</ul>
+</div>
+</div>
+
+      
+      
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <script async="" src="http://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- -->
+<ins class="adsbygoogle" style="display:inline-block;width:300px;height:250px" data-ad-client="ca-pub-6275292186973463" data-ad-slot="8858486830"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+  </div>
+</div>
+
+      
+      
+    
+      <div class="hatena-module hatena-module-related-entries">
+  <div class="hatena-module-title">
+    関連記事
+  </div>
+  <div class="hatena-module-body">
+    <ul class="related-entries hatena-urllist urllist-with-thumbnails">
+  
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150407/1428413566" class="urllist-title-link related-entries-title-link          urllist-title related-entries-title        ">C#で半角カタカナを全角カタカナに変換する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150407/1428413566" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1428413566" alt="はてなブックマーク - C#で半角カタカナを全角カタカナに変換する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+                  <a class="urllist-image-link related-entries-image-link" href="http://blog.ch3cooh.jp/entry/20150209/1423445400">            <img alt="C#とCoreTweetを使ってフォロワーの情報を取得する" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150208%2F20150208143026.png" class="urllist-image related-entries-image" title="C#とCoreTweetを使ってフォロワーの情報を取得する" width="50">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150209/1423445400" class="urllist-title-link related-entries-title-link          urllist-title related-entries-title        ">C#とCoreTweetを使ってフォロワーの情報を取得する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150209/1423445400" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1423445400" alt="はてなブックマーク - C#とCoreTweetを使ってフォロワーの情報を取得する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+                  <a class="urllist-image-link related-entries-image-link" href="http://blog.ch3cooh.jp/entry/20150121/1421803800">            <img alt="C#とCoreTweetを使ってAPIの残数(rate limti)を取得する" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150118%2F20150118190749.png" class="urllist-image related-entries-image" title="C#とCoreTweetを使ってAPIの残数(rate limti)を取得する" width="50">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150121/1421803800" class="urllist-title-link related-entries-title-link          urllist-title related-entries-title        ">C#とCoreTweetを使ってAPIの残数(rate limti)を取得する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150121/1421803800" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1421803800" alt="はてなブックマーク - C#とCoreTweetを使ってAPIの残数(rate limti)を取得する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+                  <a class="urllist-image-link related-entries-image-link" href="http://blog.ch3cooh.jp/entry/20150119/1421631000">            <img alt="C#とCoreTweetを使って特定のキーワードを含むツイートを検索する" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/http-%2F%2Fcdn-ak.f.st-hatena.com%2Fimages%2Ffotolife%2Fc%2Fch3cooh393%2F20150118%2F20150118181116.png" class="urllist-image related-entries-image" title="C#とCoreTweetを使って特定のキーワードを含むツイートを検索する" width="50">
+          </a>
+        
+        <a href="http://blog.ch3cooh.jp/entry/20150119/1421631000" class="urllist-title-link related-entries-title-link          urllist-title related-entries-title        ">C#とCoreTweetを使って特定のキーワードを含むツイートを検索する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20150119/1421631000" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1421631000" alt="はてなブックマーク - C#とCoreTweetを使って特定のキーワードを含むツイートを検索する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+    
+    <li class="urllist-item related-entries-item">
+      <div class="urllist-item-inner related-entries-item-inner">
+        
+        
+        <a href="http://blog.ch3cooh.jp/entry/20141217/1418778000" class="urllist-title-link related-entries-title-link          urllist-title related-entries-title        ">Xamarin.iOSでMD5やSHA1のハッシュ値を計算する        </a>
+                  <a href="http://b.hatena.ne.jp/entry/http://blog.ch3cooh.jp/entry/20141217/1418778000" class="bookmark-widget-counter">
+            <img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/1418778000" alt="はてなブックマーク - Xamarin.iOSでMD5やSHA1のハッシュ値を計算する">
+          </a>
+        
+
+              </div>
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+      
+      
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    
+  </div>
+</div>
+
+      
+      
+    
+      
+
+<div class="hatena-module hatena-module-category">
+  <div class="hatena-module-title">
+    カテゴリー
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Android" title="Android (57)" style="font-size: 120%; font-weight: bold;">Android</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Arduino" title="Arduino (3)" style="font-size: 90%; font-weight: normal;">Arduino</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/ASP.NET" title="ASP.NET (15)" style="font-size: 100%; font-weight: bold;">ASP.NET</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/AWS" title="AWS (5)" style="font-size: 90%; font-weight: normal;">AWS</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Baseball%20Japan" title="Baseball Japan (14)" style="font-size: 90%; font-weight: bold;">Baseball Japan</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/C%23" title="C# (99)" style="font-size: 120%; font-weight: bold;">C#</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/C%2FC%2B%2B" title="C/C++ (28)" style="font-size: 100%; font-weight: bold;">C/C++</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Excel" title="Excel (13)" style="font-size: 90%; font-weight: bold;">Excel</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Firefox" title="Firefox (5)" style="font-size: 90%; font-weight: normal;">Firefox</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/iPhone" title="iPhone (239)" style="font-size: 150%; font-weight: bold;">iPhone</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Jenkins" title="Jenkins (14)" style="font-size: 90%; font-weight: bold;">Jenkins</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Mac" title="Mac (30)" style="font-size: 100%; font-weight: bold;">Mac</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Microsoft%20Azure" title="Microsoft Azure (30)" style="font-size: 100%; font-weight: bold;">Microsoft Azure</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/MyWorks" title="MyWorks (2)" style="font-size: 80%; font-weight: normal;">MyWorks</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Office%20365" title="Office 365 (2)" style="font-size: 80%; font-weight: normal;">Office 365</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/OneNote" title="OneNote (2)" style="font-size: 80%; font-weight: normal;">OneNote</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/OpenCV" title="OpenCV (11)" style="font-size: 90%; font-weight: bold;">OpenCV</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/OpenNETCF" title="OpenNETCF (7)" style="font-size: 90%; font-weight: normal;">OpenNETCF</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Pixishare" title="Pixishare (7)" style="font-size: 90%; font-weight: normal;">Pixishare</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/pixiv" title="pixiv (48)" style="font-size: 120%; font-weight: bold;">pixiv</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Pragger" title="Pragger (8)" style="font-size: 90%; font-weight: normal;">Pragger</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/ReVIEW" title="ReVIEW (13)" style="font-size: 90%; font-weight: bold;">ReVIEW</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Splatoon" title="Splatoon (31)" style="font-size: 100%; font-weight: bold;">Splatoon</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/SQL" title="SQL (3)" style="font-size: 90%; font-weight: normal;">SQL</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Studying" title="Studying (10)" style="font-size: 90%; font-weight: bold;">Studying</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Swift" title="Swift (14)" style="font-size: 90%; font-weight: bold;">Swift</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Titanium%20Mobile" title="Titanium Mobile (8)" style="font-size: 90%; font-weight: normal;">Titanium Mobile</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Web" title="Web (41)" style="font-size: 120%; font-weight: bold;">Web</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Windows" title="Windows (7)" style="font-size: 90%; font-weight: normal;">Windows</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Windows%20Media%20Player" title="Windows Media Player (7)" style="font-size: 90%; font-weight: normal;">Windows Media Player</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Windows%20Mobile" title="Windows Mobile (217)" style="font-size: 150%; font-weight: bold;">Windows Mobile</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Windows%20Phone" title="Windows Phone (352)" style="font-size: 150%; font-weight: bold;">Windows Phone</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Windows%20Store%20Apps" title="Windows Store Apps (156)" style="font-size: 150%; font-weight: bold;">Windows Store Apps</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/Xamarin" title="Xamarin (51)" style="font-size: 120%; font-weight: bold;">Xamarin</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%81%94%E9%A3%AF" title="ご飯 (46)" style="font-size: 120%; font-weight: bold;">ご飯</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%81%BE%E3%82%8A%E3%82%82" title="まりも (16)" style="font-size: 100%; font-weight: bold;">まりも</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%82%A2%E3%83%97%E3%83%AA%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC" title="アプリレビュー (5)" style="font-size: 90%; font-weight: normal;">アプリレビュー</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%82%AC%E3%82%B8%E3%82%A7%E3%83%83%E3%83%88" title="ガジェット (19)" style="font-size: 100%; font-weight: bold;">ガジェット</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%82%B3%E3%83%9F%E3%82%B1" title="コミケ (20)" style="font-size: 100%; font-weight: bold;">コミケ</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E3%83%86%E3%82%B9%E3%83%88" title="テスト (7)" style="font-size: 90%; font-weight: normal;">テスト</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E4%BB%99%E5%B7%9D" title="仙川 (11)" style="font-size: 90%; font-weight: bold;">仙川</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E4%BC%91%E8%AC%9B%E6%83%85%E5%A0%B1" title="休講情報 (10)" style="font-size: 90%; font-weight: bold;">休講情報</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E5%8B%89%E5%BC%B7%E4%BC%9A" title="勉強会 (30)" style="font-size: 100%; font-weight: bold;">勉強会</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E5%8D%83%E6%AD%B3%E7%83%8F%E5%B1%B1" title="千歳烏山 (14)" style="font-size: 90%; font-weight: bold;">千歳烏山</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E5%AE%B6%E5%BA%AD%E8%8F%9C%E5%9C%92" title="家庭菜園 (13)" style="font-size: 90%; font-weight: bold;">家庭菜園</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E6%8A%95%E8%B3%87%E3%81%A8%E3%81%8B" title="投資とか (24)" style="font-size: 100%; font-weight: bold;">投資とか</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E6%97%85%E8%A1%8C%E3%81%A8%E3%81%8B" title="旅行とか (33)" style="font-size: 100%; font-weight: bold;">旅行とか</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E6%97%A5%E6%9C%AC%E5%8F%B2" title="日本史 (50)" style="font-size: 120%; font-weight: bold;">日本史</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E6%9C%AC" title="本 (98)" style="font-size: 120%; font-weight: bold;">本</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E7%94%BB%E5%83%8F%E5%87%A6%E7%90%86" title="画像処理 (26)" style="font-size: 100%; font-weight: bold;">画像処理</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E8%8B%B1%E8%AA%9E" title="英語 (8)" style="font-size: 90%; font-weight: normal;">英語</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E9%89%84%E9%81%93" title="鉄道 (7)" style="font-size: 90%; font-weight: normal;">鉄道</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/archive/category/%E9%9B%91%E8%A8%98" title="雑記 (167)" style="font-size: 150%; font-weight: bold;">雑記</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+      
+      
+    
+      
+<div class="hatena-module hatena-module-html">
+  <div class="hatena-module-body">
+    <script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/jquery-1.10.2.min.js"></script>
+<script>
+// タグクラウドもどき
+$(function() {
+  var categories = $(".hatena-module-category ul li a");
+  $.each(
+    categories,
+    function(index, domEle) {
+      var ele = $(domEle);
+      var texts = $.trim(ele.text());
+      // リンクテキストから記事件数を取得
+      var count1 = texts.match(/\([^\(\s +]+\)/);
+      var count2 = count1[0].match(/\d+/);
+      // 大きさ指定 Start
+      if(count2 >= 100) ele.css("font-size", "150%");
+      else if(count2 >= 40) ele.css("font-size", "120%");
+      else if(count2 >= 15) ele.css("font-size", "100%");
+      else if(count2 >= 3) ele.css("font-size", "90%");
+      else if(count2 >= 2) ele.css("font-size", "80%");
+      else ele.css("font-size", "70%");
+      // 大きさ指定 End
+     
+      if(count2 >= 10) ele.css("font-weight", "bold");
+      else ele.css("font-weight", "normal");
+
+      // リンクテキストから記事件数を除去
+      ele.text($.trim(texts.replace(/\([^\(\s +]+\)/, '')));
+      // ツールチップに記事件数含めて表示する（title要素）
+      ele.attr("title", texts);
+    }
+  );
+});
+</script>
+  </div>
+</div>
+
+      
+      
+    
+      <div class="hatena-module hatena-module-links">
+  <div class="hatena-module-title">
+    開発Tipsのまとめ
+  </div>
+  <div class="hatena-module-body">
+    <ul class="hatena-urllist">
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/20120816/1345109400">Windowsストアアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/windows-phone">Windows Phoneアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/ios">iOSアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/android">Androidアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/xamarin-ios">Xamarin.iOSアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/xamarin-android">Xamarin.Androidアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/windows-mobile">Windows Mobileアプリ 開発Tips</a>
+        </li>
+      
+        <li>
+          <a href="http://blog.ch3cooh.jp/entry/review">Re:Viewでの執筆Tips</a>
+        </li>
+      
+    </ul>
+  </div>
+</div>
+
+      
+      
+    
+    
+  </div>
+</aside>
+
+  </div>
+</div>
+
+
+
+
+        
+        
+        
+      </div>
+    </div>
+
+    
+      <footer id="footer" data-brand="hatenablog">
+  <div id="footer-inner">
+    <address>
+      
+      <a href="http://blog.ch3cooh.jp/about"><img src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/profile(2).gif" width="16" height="16" alt="">
+        <span data-load-nickname="1" data-user-name="ch3cooh393"><span class="user-name-nickname">CH3COOH(酢酸)</span> <span class="user-name-paren">(</span><span class="user-name-hatena-id">id:ch3cooh393</span><span class="user-name-paren">)</span></span>
+      </a>
+    </address>
+    <p class="services">Powered by <a href="http://hatenablog.com/">Hatena Blog</a></p>
+  </div>
+</footer>
+
+    
+
+    
+  <script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script><script id="pocket-btn-js" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/btn.js"></script>
+
+
+    
+  <script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/HatenaStar.js"></script>
+
+
+    
+  <script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/widgets.js"></script>
+
+<script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/platform.js" async="" defer="" gapi_processed="true">
+  { lang: 'ja', "parsetags": "explicit" }
+</script>
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/bookmark_button.js" charset="utf-8" async="async"></script>
+
+
+
+  <script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/react-with-addons.min.js"></script>
+  <script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/react-dom.min.js"></script>
+
+
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/jquery.min.js"></script>
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/jquery-ui.custom.min.js"></script>
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/jquery.flot.js"></script>
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/jquery.flot.time.js"></script>
+
+
+
+
+<script id="hatenablog-js" data-env="production" type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/hatenablog.js" crossorigin="anonymous"></script><div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%; display: none;"></div>
+<script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/texts-ja.js"></script>
+
+
+  <script type="text/javascript">Hatena.Diary.GlobalHeader.init()</script>
+
+
+<script src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/api.js" async="" defer=""></script>
+
+
+
+
+    
+  <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/Lcj5EtQ5qmD.html" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/Lcj5EtQ5qmD(1).html" style="border: none;"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&appId=719729204785177&version=v2.7";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+    
+       
+
+  <script id="hatena-counter-script" type="text/javascript"><!--
+      hatena_counter_name = "ch3cooh393";
+      hatena_counter_id = "101";
+      hatena_counter_ref = document.referrer+"";
+      hatena_counter_screen = screen.width + "x" + screen.height+","+screen.colorDepth;
+  //--></script>
+  <script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/counter.js"></script><script type="text/javascript" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/101"></script><span class="hatena-counter"></span>
+  <noscript>&lt;img src="http://counter.hatena.ne.jp/ch3cooh393/101" border="0" alt="counter"&gt;</noscript>
+
+
+    
+
+  
+
+
+<div id="cboxOverlay" style="display: none;"></div><div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;"><div id="cboxWrapper"><div><div id="cboxTopLeft" style="float: left;"></div><div id="cboxTopCenter" style="float: left;"></div><div id="cboxTopRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxMiddleLeft" style="float: left;"></div><div id="cboxContent" style="float: left;"><div id="cboxTitle" style="float: left;"></div><div id="cboxCurrent" style="float: left;"></div><button type="button" id="cboxPrevious"></button><button type="button" id="cboxNext"></button><button id="cboxSlideshow"></button><div id="cboxLoadingOverlay" style="float: left;"></div><div id="cboxLoadingGraphic" style="float: left;"></div></div><div id="cboxMiddleRight" style="float: left;"></div></div><div style="clear: left;"><div id="cboxBottomLeft" style="float: left;"></div><div id="cboxBottomCenter" style="float: left;"></div><div id="cboxBottomRight" style="float: left;"></div></div></div><div style="position: absolute; width: 9999px; visibility: hidden; display: none; max-width: none;"></div></div><div style="top: -9999px; z-index: -9999;"></div><div id="AutoPatchWork-Bar" class="on"></div><iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/saved_resource(2).html"></iframe><iframe name="oauth2relay299084030" id="oauth2relay299084030" src="./C#でHtml Agility Packを使ってウェブサイトのタイトルを取得する - 酢ろぐ！_files/postmessageRelay.html" tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;"></iframe><div style="color: rgb(0, 0, 0); position: absolute; display: none; z-index: 10002; left: 0px; top: 0px; border: 0px; padding: 0px; text-align: center; background-color: rgb(255, 255, 255);"><div style="text-align: left; margin: 0px; padding: 0px;"></div></div></body></html>

@@ -1,0 +1,283 @@
+.ssArticlesContainer{
+	/*background-color:white;*/
+	width:100%;
+	padding-bottom:30px;
+}
+.ssArticlesContainer .ssArticleRow{
+	width:100%;
+	border-bottom:1px solid #DCDCDC;
+}
+.ssArticle {
+	margin:0px 0px 0px 0px !important;
+}
+@media only screen 
+and (min-width : 640px) {
+	
+	.ssArticlesContainer .ssArticle.img .ssArticleContent .ssArticlePhotoContainer img{
+		width:100% !important;
+		max-width:100% !important ;
+		height:auto !important;
+		margin:0 !important;
+		padding: 0 !important;
+		opacity:1 !important;
+	}
+	.ssArticlesContainer .ssArticle{
+		width:33%;
+		/*padding-top:20px;
+		padding-bottom:20px;*/
+		vertical-align:top;
+		border-bottom:1px solid #DCDCDC;
+	}
+	.ssArticlesContainer .ssArticle.img{
+		/*background-color: rgba(30,30,30,0.8);*/
+		margin-bottom:5px;
+	}
+
+	.ssArticlesContainer .ssArticleRow{
+		display:table;
+	}
+	.ssArticlesContainer .ssArticle{
+		float:left;
+		position:relative;
+		/*padding-bottom:320px;*/
+		overflow:hidden;
+	}
+	.ssArticlesContainer .ssArticle .ssArticleContent{
+		top:0px;
+		left:0px;
+		position:absolute;
+		width:100%;
+		margin-left: 1px;
+		/*padding-top: 20px;*/
+		margin-right: 1px;
+	}
+}
+@media only screen 
+and (max-width : 640px) {	
+
+	.ssArticlesContainer .ssArticle{
+		width:100% !important;
+		padding-top:10px;
+	}
+	.ssArticlesContainer .ssArticle:not(.img){
+		border-bottom:1px solid #DCDCDC;
+		padding-bottom:10px;
+	}
+	.ssArticlePhotoParent{
+		max-height:200px !important;
+	}
+	.ssArticlesContainer.limited .ssArticle .ssArticleContent .ssArticlePhotoContainer img{
+		width:100%;
+	}
+	/*.ssArticlesContainer .ssArticle > div{
+		display:table-cell;
+	}*/
+	/*.ssArticlesContainer .ssArticle .ssArticleContent{
+		text-align:center;
+	}*/
+	/*.ssArticlesContainer.limited .ssArticle .ssArticleContent{
+		display:table;
+		max-width:100%;
+		width:100%;
+		padding-top:5px;
+		padding-bottom:5px;
+	}
+	.ssArticlesContainer.limited .ssArticle .ssArticleContent > div{
+		display:table-cell;
+	}
+	.ssArticlesContainer.limited .ssArticle .ssArticleContent .ssArticlePhotoContainer{
+		width:75px;
+	}
+	.ssArticlesContainer.limited .ssArticle .ssArticleContent .ssArticlePhotoContainer img{
+		max-height:100px;
+	}
+	.ssArticlesContainer.limited .ssArticle .ssArticleContent .ssArticleTitleContainer{
+		font-size:0.8em;
+	}*/
+}
+.ssArticlesContainer {
+	border-top:1px solid #DCDCDC;
+}
+div.ssArticlesContainer.limited{
+	overflow-y:scroll;
+	overflow-x:hidden;
+}
+
+.ssArticlesContainer .ssArticle .ssArticlePhotoContainer{
+	overflow: hidden;
+	text-align:center;
+}
+@media only screen 
+and (min-width : 640px) {
+	.ssArticlesContainer .ssArticle .ssArticlePhotoContainer{
+		/*height: 250px;*/
+	}
+}
+
+
+@media only screen 
+and (max-width : 640px) {
+
+	.ssArticlesContainer .ssArticle .ssArticlePhotoContainer{
+		max-height:200px;
+		text-align:center;
+		/*display:inline-block;*/
+	}
+
+}
+	
+@media only screen 
+and (min-width : 640px) {
+	.ssArticlesContainer .ssArticle .ssArticlePhotoContainer .ssArticlePhoto{
+		/*max-width:95%;*/
+		width:100%;
+		margin:0 !important;
+	}
+}
+@media only screen 
+and (max-width : 640px) {
+	.ssArticlesContainer .ssArticle .ssArticlePhotoContainer .ssArticlePhoto{
+		max-width:100%;
+	}
+}
+
+.ssArticlesContainer .ssArticle .ssArticleTitleContainer a , .ssPoweredBy a{
+	border-bottom:none;
+}
+@media only screen
+and (max-width : 640px) {
+	.ssArticlesContainer .ssArticle .ssArticleTitleContainer {
+		vertical-align:middle;
+		padding:0;
+	}
+	.ssArticlesContainer .ssArticle.img .ssArticleContent{
+		position:relative;
+	}
+	.ssArticlesContainer .ssArticle.img .ssArticleTitleContainer{
+		position:absolute;
+		bottom: 0px;
+		background-color: #444444;
+		opacity: 0.8;
+		width: 100%;
+	}
+	.ssArticlesContainer .ssArticle.img .ssArticleTitleContainer > a{
+		height: 44px;
+		line-height: 25px;
+		display: block;
+		overflow: hidden;
+		font-size: 14px;
+	}
+	.ssArticlesContainer .ssArticle.img .ssArticleTitleContainer > a{
+		color:white;
+		text-decoration:none;
+		padding:10px;
+		display:block;
+		text-align:center;
+	}
+}
+.ssArticlesContainer * {
+	box-sizing:content-box !important;
+}
+
+.ssArticlesContainer .ssArticle .ssArticleTitleContainer {
+	text-align:left;
+}
+@media only screen
+and (min-width : 640px) {
+	.ssArticlesContainer .ssArticle.img .ssArticleTitleContainer{
+		position:absolute;
+		bottom: 0px;
+		background-color: rgba(68,68,68,0.8);
+		width: 100%;
+		z-index:10000;
+	}
+	.ssArticlesContainer .ssArticle.img:hover{
+		opacity:0.8;
+	}
+	.ssArticlesContainer .ssArticle .ssArticleTitleContainer > a.single {
+		display:block;
+		overflow:hidden;
+	}
+
+	.ssArticlesContainer .ssArticle.img .ssArticleTitleContainer > a{
+		color:white !important;
+		text-decoration:none;
+		padding:10px;
+		display:block;
+		text-align:center;
+	}
+	.ssArticlesContainer .ssArticle .ssArticleTitleContainer > a.double{
+		height: 44px;
+		line-height: 25px;
+		display: block;
+		overflow: hidden;
+		font-size: 14px;
+	}
+}
+.ssArticlesContainer .ssArticlesFooterContainer {
+	width: 100%;
+	height: 60px;
+	float:left;
+}
+.ssArticlesContainer .ssArticlesFooterContainer .ssArticlesFooter{
+	width: 100px;
+	height: 30px;
+	margin: 15px auto;
+}
+
+.centerParent {
+	display:table;
+	width:100%;
+}
+.centerChild{
+	display:table-cell;
+	vertical-align:middle;
+	text-align:center;
+}
+
+/*高さ制限有りの場合*/
+.ssArticleLimitedContainer .ssArticleRow{
+	display:table;
+	width:100%;
+}
+
+.ssArticleLimitedContainer .ssArticleRow .ssArticle{
+	display:table-cell;
+}
+.ssArticleLimitedContainer .ssArticleRow .ssArticlePhotoContainer{
+	/*display:table-cell;*/
+	width:60%;
+	height:200px;
+	overflow:hidden;
+}
+.ssArticleLimitedContainer .ssArticleRow .ssArticlePhotoContainer > a{
+	display:block;
+}
+.ssArticleLimitedContainer .ssArticleRow .ssArticlePhotoContainer img{
+	max-width:350px;
+	display:block;
+}
+.ssArticleLimitedContainer .ssArticleRow .ssArticleTitleContainer{
+	display:table-cell;
+	width:40%;
+	vertical-align: middle;
+}
+/*scroll無*/
+.ssArticlesContainer.limited.offScroll{
+	max-height:initial !important;
+	padding-bottom:0px !important;
+	overflow-y:visible !important;
+}
+/*scroll無*/
+.ssArticlesContainer.limited.offScroll .ssArticlesFooterContainer .ssArticlesFooter{
+	height:0px !important;
+	margin:0px auto !important;
+}
+.ssArticlesContainer.limited.offScroll .ssArticlesFooterContainer{
+	height:0px !important;
+}
+
+.ssArticlesContainer .ssArticle.img .ssArticleContent .ssArticlePhotoContainer img{
+	opacity:1 !important;
+	position: inherit !important;
+}
