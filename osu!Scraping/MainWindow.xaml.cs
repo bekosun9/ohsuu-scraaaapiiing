@@ -24,10 +24,5 @@ namespace osu_Scraping
         {
             InitializeComponent();
         }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            NotifyIconWrapper icon = new NotifyIconWrapper();
-        }
     }
 }

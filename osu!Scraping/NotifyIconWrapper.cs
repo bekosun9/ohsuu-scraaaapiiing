@@ -18,7 +18,8 @@ namespace osu_Scraping
     public partial class NotifyIconWrapper : Component
     {
         DispatcherTimer timer;
-        songData dataList;
+
+        List<songData.data> dataList;
         /*
          * 現在osu!ページにログインしようとして
          * POSTデータを作成しようとしているところ
@@ -41,8 +42,8 @@ namespace osu_Scraping
         private async void contextMenuItem_Click(object sender, EventArgs e)
         {
             var q = await getSongData();
-            MessageBox.Show("https://b.ppy.sh/preview/" + q.Dequeue() + ".mp3");
-            Process.Start("https://b.ppy.sh/preview/" + q.Dequeue() + ".mp3");
+            //MessageBox.Show("https://b.ppy.sh/preview/" + q[0] + ".mp3");
+            //Process.Start("https://b.ppy.sh/preview/" + q.Dequeue() + ".mp3");
         }
 
         public NotifyIconWrapper(IContainer container)
@@ -62,10 +63,23 @@ namespace osu_Scraping
         //ページ数指定必要あり 8/17 0723
         //型はTask<Array>かTask<List>にして
         //管理を別クラスにする まとめる
-        public async Task<Queue<string>> getSongData()
+
+        /*
+         * id, artist, nameだけ管理するclass作ってListにした
+         * 追加はAdd関数でok
+         * このListを使いまわしたい場合のこと考えると
+         * [Dataクラス]->[生成クラス]->[使用クラス]
+         * みたいなのがいい？
+         * 実際Data構造体と生成クラス一緒だしk
+         * 8/17 17:10
+         * 
+         * ジャンルもあとで追加
+         */
+        public async Task<List<songData.data>> getSongData()
         {
-            Queue<string> queue = new Queue<string>();
-            dataList = new songData();
+            
+            //Queue<string> queue = new Queue<string>();
+            dataList = new List<songData.data>();
             var document = new hap.HtmlDocument();
 
             using (var client = new HttpClient())
@@ -80,18 +94,30 @@ namespace osu_Scraping
             ///html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/div[3]/div[3]/div[1]/div[3]/a[1]/@href[1]
             //var beatmaps = document.DocumentNode.SelectSingleNode(@"/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/div[3]/div[3]");
             ////*[@id="489524"]
+            ////*[@id="489524"]/div[5]/div[1]/a[1]
             //var beatmaps1 = document.DocumentNode.SelectSingleNode(@"/html[1]/body[1]/div[1]/div[1]/div[1]/div[4]/div[3]/div[3]/div[HERE]/div[3]/a[1]/@href[1]");
             var beatmaps1 = document.DocumentNode.SelectNodes("//*[@class=\"beatmap\"]");
             foreach(var a in beatmaps1)
             {
                 //ID取れた
-                queue.Enqueue(a.Id);
+                //queue.Enqueue(a.Id);
+                //id, artist, name
+                dataList.Add(new songData.data(
+                    a.Id,
+                    a.SelectSingleNode("//*[@class=\"artist\"]").InnerText,
+                    a.SelectSingleNode("//*[@class=\"title\"]").InnerText));
+                var test = a.SelectNodes("//*[class=\"tags\"]/a");
 
-                a.SelectNodes("//*[@class=\"artist\"]");
+                foreach(var i in test)
+                {
+                    MessageBox.Show(i.InnerText);
+                }
+
+                //.SelectNodes("//*[@class=\"artist\"]");
             }
             //Application.Exit();
             //https://b.ppy.sh/preview/id.mp3
-            return queue;
+            return dataList;
         }
 
         private void contextMenuStrip1_Click(object sender, EventArgs e)
